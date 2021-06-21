@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Input, Button } from "antd";
 import styles from "./styles.module.scss";
-import { FcUnlock } from "react-icons/fc";
+import { FcLock } from "react-icons/fc";
 import { useLoading } from "../../contexts/LoadingContext";
+import { BASE_API } from '../../environments';
+import { toast } from 'react-toastify'
+import axios from 'axios'
 interface IUserInfos {
   email: string;
   name: string;
@@ -10,6 +13,7 @@ interface IUserInfos {
   password: string;
 }
 const Register = () => {
+  
   const { loading, setLoading } = useLoading();
   const [userInfos, setUserInfos] = useState<IUserInfos>({
     email: "",
@@ -18,8 +22,13 @@ const Register = () => {
     surname: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    setLoading(true);
+    const { data } = await axios.post(BASE_API+"/user/signup",userInfos)
+    console.log(data)
+    setLoading(false)
+
   };
 
   const handleChange = (e) => {
@@ -29,7 +38,7 @@ const Register = () => {
   return (
     <div className={styles.register}>
       <h3 className={styles.registerHeader}>
-        Kayıt Ol <FcUnlock fontSize={30} />
+        Kayıt Ol <FcLock fontSize={30} />
       </h3>
       <form className={styles.registerForm} onSubmit={handleSubmit}>
         <div className={styles.registerFormItem}>

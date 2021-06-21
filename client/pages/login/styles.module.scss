@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+.register{
+    max-width: 900px;
+    margin:0 auto;
+    min-height: 100vh;
+    margin-top: 25px;
+    &Header{
+        color: $blue;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &Form{
+        &Item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        & button {
+            float: right;
+        }
+    }
+}

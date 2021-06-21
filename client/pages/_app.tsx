@@ -1,15 +1,20 @@
-import '../styles/globals.scss'
-import 'antd/dist/antd.css';
-import WithLoading from '../components/HOC/WithLoading';
+import "../styles/globals.scss";
+import "react-toastify/dist/ReactToastify.css";
+import "antd/dist/antd.css";
 
-const MyApp=({ Component, pageProps })=>{
+import WithLoading from "../components/HOC/WithLoading";
+import WithUser from "../components/HOC/WithUser";
+
+const MyApp = ({ Component, pageProps }) => {
   const Layout = Component.layout || (({ children }) => <>{children}</>);
   return (
-   <WithLoading>
-      <Layout>
-      <Component {...pageProps} />
-    </Layout>
-   </WithLoading>
-  )
-}
+    <WithUser>
+      <WithLoading>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </WithLoading>
+    </WithUser>
+  );
+};
 export default MyApp;
