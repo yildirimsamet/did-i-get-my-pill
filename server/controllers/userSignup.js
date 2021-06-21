@@ -31,6 +31,5 @@ const userSignup=async(req,res)=>{
         }
     }
 
-
 }
 module.exports = userSignup;
