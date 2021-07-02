@@ -22,6 +22,9 @@ const UserSchema = new Schema({
     required: true,
     minLength: 2,
   },
+  pillTakenDays:{
+    type:Array,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

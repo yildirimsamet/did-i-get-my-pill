@@ -12,7 +12,8 @@ const userSignin = async (req, res) => {
         const isPassTrue = await bcrypt.compare(password, user.password);
         if (isPassTrue) {
           const token = jwt.sign(
-            {
+            { 
+              _id:user._id,
               email: user.email,
               name: user.name,
               surname: user.surname,
