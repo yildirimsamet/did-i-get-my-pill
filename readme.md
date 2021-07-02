@@ -1,0 +1,1 @@
+### Günlük aldıgım ilacımı içip içmedigimi takip edebilecegim kişisel bir uygulama 
